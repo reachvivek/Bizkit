@@ -47,6 +47,19 @@ interface EnquiryForm {
 export class App implements OnInit {
   title = 'bizkit-platform';
 
+  showScrollTop: boolean = false;
+
+  // Method to get category CSS class
+  getCategoryClass(category: string): string {
+    const classMap: { [key: string]: string } = {
+      Licenses: 'licenses',
+      'SaaS Solutions': 'saas',
+      Services: 'services',
+      'Free Tools': 'services', // Using services class for free tools
+      'Latest Updates': 'services',
+    };
+    return classMap[category] || '';
+  }
   // Search and filter properties
   searchQuery: string = '';
   selectedCategory: string = 'ALL';
